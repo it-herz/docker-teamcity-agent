@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM itherz/java8
 
 RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
@@ -11,14 +11,6 @@ RUN apt-get -qq update \
  && apt-get -qq clean -y \
  && pip install --upgrade pip \
  && pip install spritify
-
-# ------------------------------------------------------------------------- jdk8
-RUN (curl -L -k -b "oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u92-b14/jdk-8u92-linux-x64.tar.gz | gunzip -c | tar x) \
- && mv /jdk1.8.0_92 /jdk
-
-ENV JAVA_HOME /jdk
-ENV JRE_HOME  $JAVA_HOME/jre
-ENV PATH $PATH:$JAVA_HOME/bin
 
 # ----------------------------------------------------------------------- nodejs
 ENV NODE_VERSION 4.4.4
