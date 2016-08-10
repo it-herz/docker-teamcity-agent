@@ -13,7 +13,7 @@ RUN apt-get -qq update \
  && pip install spritify
 
 # ----------------------------------------------------------------------- nodejs
-ENV NODE_VERSION 4.4.4
+ENV NODE_VERSION 4.4.7
 
 RUN (curl -L https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz | gunzip -c | tar x) \
  && cp -R node-v${NODE_VERSION}-linux-x64/* /usr/ \
@@ -32,7 +32,7 @@ ENV MAVEN_OPTS -Xmx512m -Xss256k -XX:+UseCompressedOops
 ENV PATH $PATH:$M2_HOME/bin
 
 # --------------------------------------------------------------- teamcity-agent
-ENV TEAMCITY_VERSION 9.1.7
+ENV TEAMCITY_VERSION 10.0.1
 ENV TEAMCITY_GIT_PATH /usr/bin/git
 
 RUN curl -LO http://download.jetbrains.com/teamcity/TeamCity-$TEAMCITY_VERSION.war \
